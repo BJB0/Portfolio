@@ -1,73 +1,61 @@
-# Welcome to your Lovable project
+# 💻 Bhargab Jyoti Bhuyan – Developer Portfolio
 
-## Project info
+This is my **personal developer portfolio website**, built using **React + TypeScript** and styled with **Tailwind CSS**. The design features a pixel-art aesthetic, floating profile animation, typewriter effect, and a working contact form.
 
-**URL**: https://lovable.dev/projects/3faa149f-79b3-4415-a3fd-30c69e81a5fa
+---
 
-## How can I edit this code?
+## 🔗 Live Demo
 
-There are several ways of editing your application.
+👉 [**View Portfolio**](https://portfolio-nine-wine-18.vercel.app/)
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/3faa149f-79b3-4415-a3fd-30c69e81a5fa) and start prompting.
+## ✨ Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- 🖋️ Typewriter animation for name
+- 🪪 Resume download via Google Drive
+- ✉️ Fully working contact form (EmailJS)
+- 🧩 Interactive project cards with GitHub links
+- 🖼️ Floating animated profile image
+- 🎮 Retro pixel-themed UI
+- 🌙 Dark mode supported
+- 📱 Fully responsive across devices
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠 Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Frontend**: React, TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Form Handling**: EmailJS
+- **Deployment**: Vercel
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 📁 Folder Structure
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+├── public/                  # Static assets (images, icons, etc.)
+├── src/
+│   ├── components/          # UI components (Hero, Projects, Footer, etc.)
+│   ├── hooks/               # Custom hooks (e.g., use-toast)
+│   ├── lib/                 # Utility functions
+│   ├── App.tsx              # Root component
+│   └── main.tsx             # App entry point
+├── index.css                # Global styles and animations
+├── tailwind.config.ts       # Tailwind custom configuration
+└── vite.config.ts           # Vite bundler configuration
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+🚀 Clone This Repository
 
-**Use GitHub Codespaces**
+```bash
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/3faa149f-79b3-4415-a3fd-30c69e81a5fa) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+git clone https://github.com/BJB0/Portfolio.git
+cd Portfolio
+npm install
+npm run dev
+```
