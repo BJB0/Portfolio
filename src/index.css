@@ -183,7 +183,7 @@
     width: 0ch;
   }
   to {
-    width: 23ch; /* 22 characters + 1 buffer */
+    width: 100%;
   }
 }
 
@@ -191,9 +191,8 @@
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
-  animation: typing 2.5s steps(23, end) forwards;
+  animation: typing 2.5s steps(30, end) forwards;
 }
-
 
 @keyframes float {
   0%, 100% {
@@ -207,3 +206,4 @@
 .float-slow {
   animation: float 1.3s ease-in-out infinite;
 }
+

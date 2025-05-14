@@ -1,5 +1,6 @@
 import { Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export function Projects() {
   const projects = [
@@ -45,14 +46,22 @@ export function Projects() {
     <section id="projects" className="py-16 bg-secondary">
       <div className="container">
         <h2 className="section-title">Projects</h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
           {projects.map((project, index) => (
-            <div key={index} className={`pixel-card border-4 ${project.color} flex flex-col h-full bg-card`}>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: index % 2 === 0 ? -40 : 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
+              className={`pixel-card border-4 ${project.color} flex flex-col h-full bg-card`}
+            >
               <h3 className="font-pixel text-xl mb-3">{project.title}</h3>
-              
+
               <p className="font-mono text-sm mb-4 flex-grow">{project.description}</p>
-              
+
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag, idx) => (
                   <span key={idx} className="text-xs font-mono bg-secondary px-2 py-1">
@@ -60,7 +69,7 @@ export function Projects() {
                   </span>
                 ))}
               </div>
-              
+
               <div className="flex gap-3">
                 <Button variant="outline" size="sm" className="pixel-corners" asChild>
                   <a href={project.links.github} target="_blank" rel="noopener noreferrer">
@@ -68,14 +77,14 @@ export function Projects() {
                   </a>
                 </Button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-        
+
         <div className="mt-8 text-center">
-          <a 
-            href="https://github.com/BJB0" 
-            target="_blank" 
+          <a
+            href="https://github.com/BJB0"
+            target="_blank"
             rel="noopener noreferrer"
             className="pixel-btn inline-flex items-center gap-2"
           >

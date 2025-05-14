@@ -1,6 +1,7 @@
 import { Code, Terminal } from "lucide-react";
 import { PixelatedBorder } from "./PixelatedBorder";
 import { ProfileImage } from "./ProfileImage";
+import { motion } from "framer-motion";
 
 export function Hero() {
   return (
@@ -8,13 +9,23 @@ export function Hero() {
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* LEFT SECTION */}
-          <div className="lg:col-span-7">
-            <div className="space-y-6 bg-background/50 p-6 rounded-lg backdrop-blur-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7"
+          >
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 100 }}
+              className="space-y-6 bg-background/50 p-6 rounded-lg backdrop-blur-sm"
+            >
               <div className="space-y-2">
                 <h2 className="font-mono text-xl">Hello World! I'm</h2>
 
                 <div className="w-fit max-w-full overflow-hidden">
-                  <h1 className="animate-typewriter font-mono font-bold text-3xl md:text-4xl lg:text-5xl text-foreground dark:text-white">
+                  <h1 className="animate-typewriter font-mono font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground dark:text-white">
                     Bhargab Jyoti Bhuyan
                   </h1>
                 </div>
@@ -27,7 +38,6 @@ export function Hero() {
                 </div>
               </div>
 
-              {/* MOBILE PROFILE IMAGE */}
               <ProfileImage
                 imageUrl="/lovable-uploads/707bb487-bf17-4333-a803-00b2b350d0f7.png"
                 alt="Bhargab Jyoti Bhuyan"
@@ -58,13 +68,18 @@ export function Hero() {
                   Check Resume
                 </a>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* RIGHT SECTION */}
-          <div className="lg:col-span-5">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-5"
+          >
             <div className="flex flex-col gap-6">
-              {/* DESKTOP PROFILE IMAGE */}
               <ProfileImage
                 imageUrl="/lovable-uploads/707bb487-bf17-4333-a803-00b2b350d0f7.png"
                 alt="Bhargab Jyoti Bhuyan"
@@ -94,7 +109,7 @@ export function Hero() {
                 </div>
               </PixelatedBorder>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

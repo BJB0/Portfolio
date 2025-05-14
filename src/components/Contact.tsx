@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
 
 export function Contact() {
   const { toast } = useToast();
@@ -23,30 +24,31 @@ export function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    emailjs.send(
-      "service_36hq30g",           // ✅ Your service ID
-      "template_s04qsdi",          // ✅ Your template ID
-      {
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-      },
-      "pUOffmoITc_tKeQ-p"          // ✅ Your public key
-    )
-    .then(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+    emailjs
+      .send(
+        "service_36hq30g",
+        "template_s04qsdi",
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        "pUOffmoITc_tKeQ-p"
+      )
+      .then(() => {
+        toast({
+          title: "Message sent!",
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        toast({
+          title: "Something went wrong!",
+          description: "Please try again later.",
+        });
       });
-      setFormData({ name: "", email: "", message: "" });
-    })
-    .catch((error) => {
-      console.error("EmailJS Error:", error);
-      toast({
-        title: "Something went wrong!",
-        description: "Please try again later.",
-      });
-    });
   };
 
   return (
@@ -55,13 +57,19 @@ export function Contact() {
         <h2 className="section-title">Contact</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
-          <div>
-            <PixelatedBorder className="p-6 bg-card h-full">
+          {/* Contact Details */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <PixelatedBorder className="p-6 bg-card h-full hover:shadow-lg transition-all duration-300">
               <h3 className="font-pixel text-xl mb-6">Get In Touch</h3>
 
               <div className="space-y-4 font-mono">
                 <p>
-                  I’m open to internships, collaborations, or just a good tech chat. 
+                  I’m open to internships, collaborations, or just a good tech chat.
                   Drop me a message anytime!
                 </p>
 
@@ -96,58 +104,58 @@ export function Contact() {
                 </div>
               </div>
             </PixelatedBorder>
-          </div>
+          </motion.div>
 
-          <div>
-            <PixelatedBorder className="p-6 bg-card">
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <PixelatedBorder className="p-6 bg-card hover:shadow-lg transition-all duration-300">
               <h3 className="font-pixel text-xl mb-6">Send A Message</h3>
 
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <Input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="font-mono pixel-corners"
-                    required
-                  />
-                </div>
+                <Input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="font-mono pixel-corners"
+                  required
+                />
 
-                <div>
-                  <Input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="font-mono pixel-corners"
-                    required
-                  />
-                </div>
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="font-mono pixel-corners"
+                  required
+                />
 
-                <div>
-                  <Textarea
-                    name="message"
-                    placeholder="Your Message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="font-mono pixel-corners min-h-32"
-                    required
-                  />
-                </div>
+                <Textarea
+                  name="message"
+                  placeholder="Your Message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="font-mono pixel-corners min-h-32"
+                  required
+                />
 
                 <Button
                   type="submit"
-                  className="pixel-btn w-full flex items-center gap-2 justify-center"
+                  className="pixel-btn w-full flex items-center gap-2 justify-center hover:scale-105 transition-transform"
                 >
                   <Send className="h-4 w-4" />
                   Send Message
                 </Button>
               </form>
             </PixelatedBorder>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
