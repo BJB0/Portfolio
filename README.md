@@ -6,7 +6,7 @@ This is my **personal developer portfolio website**, built using **React + TypeS
 
 ## 🔗 Live Demo
 
-👉 [**View Portfolio**](https://portfolio-nine-wine-18.vercel.app/)
+👉 [**View Portfolio**](https://bjbportfolio.vercel.app/)
 
 ---
 
